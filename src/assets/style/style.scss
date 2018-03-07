@@ -1,0 +1,243 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+$bodyBcg: #53667d;
+$backColor: rgba(255, 255, 255, 0.1);
+$backColorHover: rgba(255, 255, 255, 0.2);
+$colorTextGrey: rgba(255, 255, 255, 0.5);
+$bgImg: url('../images/sky.png');
+
+body {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+#app {
+  height: 100vh;
+  background: $bodyBcg;
+  background-image: $bgImg;
+}
+.container {
+  width: 1000px;
+  padding: 70px 10px 10px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: relative;
+
+}
+.loading {
+  width: 133px;
+  margin: 0 auto;
+}
+.head-content {
+  display: flex;
+
+  & i {
+    font-size: 30px;
+    margin-left: 20px;
+    color: $colorTextGrey;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+
+  }
+}
+.title {
+  margin: 0 10px 10px 40px;
+}
+.days {
+  list-style-type: none;
+  position: relative;
+  display: flex;
+  padding: 0;
+  width: 900px;
+  margin: 0 auto;
+
+  & li {
+    width: 150px;
+    height: 150px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: background-color .5s;
+    -moz-transition: background-color .5s;
+    -ms-transition: background-color .5s;
+    -o-transition: background-color .5s;
+    transition: background-color .5s;
+
+    &:hover {
+      background-color: $backColor;
+    }
+
+    & h4 {
+      margin: 5px 0;
+    }
+
+    &:not(.active) {
+      border-bottom: 1px solid #ccc;
+      color: $colorTextGrey;
+    }
+  }
+}
+
+.weather {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 900px;
+  margin: 0 auto;
+
+  &-item {
+    width: 112px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+
+    &:nth-child(odd) {
+      background: -webkit-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.2));
+      background: -o-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.2));
+      background: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.2));
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.2));
+    }
+
+    &-time {
+      color: $colorTextGrey;
+    }
+    &-temp {
+      margin: 5px 0;
+
+      & span {
+        font-size: 30px;
+      }
+    }
+  }
+
+  &-desc {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: -15px 0 0;
+  }
+}
+.cities {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 0 40px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 917px;
+  max-height: 240px;
+  overflow-y: auto;
+
+  &-btn {
+    display: flex;
+    width: 140px;
+    background-color: $backColor;
+    padding: 5px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+
+    & .cities-name {
+      width: 130px;
+      color: #ccc;
+      cursor: pointer;
+      overflow: hidden;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    &.active-city {
+      background-color: $backColorHover;
+
+      & .cities-name {
+        color: #fff;
+      }
+    }
+
+    & .fa-trash-o {
+      margin: 7px;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &-form {
+    margin: 20px 40px;
+  }
+
+  &-add {
+    height: 30px;
+    background-color: $backColor;
+    border: none;
+    padding: 0 7px;
+    color: #fff;
+    margin-right: 20px;
+    width: 150px;
+
+    &::placeholder {
+      color: #a1b0c1;
+    }
+    &::-webkit-input-placeholder {
+      color: #a1b0c1;
+    }
+    &::-moz-placeholder {
+      color: #a1b0c1;
+    }
+    &:-ms-input-placeholder {
+      color: #a1b0c1;
+    }
+    &:-moz-placeholder {
+      color: #a1b0c1;
+    }
+  }
+  &::-webkit-scrollbar-track
+  {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar
+  {
+    width: 12px;
+    background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar-thumb
+  {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #808080;
+  }
+}
+
+.add-btn {
+  background-color: $backColor;
+  border: none;
+  color: #ccc;
+  height: 30px;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    background-color: $backColorHover;
+  }
+}
+.fa {
+  color: #a1b0c1;
+}
+.active {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: none;
+  color: #fff;
+}
